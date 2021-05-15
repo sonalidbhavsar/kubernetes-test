@@ -1,0 +1,14 @@
+name : docker_build_image_action
+on: 
+  push:
+    branches : 
+      - main
+jobs:
+  build_image_job:
+    name: docker_build_image
+    runs-on: ubuntu-latest
+    steps: 
+      - name: Check out code
+        uses: actions/checkout@v2
+      - name : build_docker_image
+        run: docker build -t kubernetes_test:latest .
